@@ -1,10 +1,11 @@
-name = "project"
+name = "Project"
 version = "0.1.0"
-defaultTargets = ["project"]
+defaultTargets = ["Project"]
 
 [[lean_lib]]
 name = "Project"
 
-[[lean_exe]]
-name = "project"
-root = "Main"
+[[require]]
+name = "mathlib"
+scope = "leanprover-community"
+rev = "v4.22.0-rc3"
