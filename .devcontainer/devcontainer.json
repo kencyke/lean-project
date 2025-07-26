@@ -16,14 +16,30 @@
 	"customizations": {
 		"vscode": {
 			"extensions": [
-				"leanprover.lean4"
+				"leanprover.lean4",
+				"github.copilot",
+				"github.copilot-chat"
 			],
 			"settings": {
 				"terminal.integrated.allowChords": false,
 				"files.eol": "\n",
 				"files.insertFinalNewline": true,
 				"editor.renderWhitespace": "all",
-				"editor.formatOnSave": true
+				"editor.formatOnSave": true,
+				"github.copilot.chat.localeOverride": "ja",
+				"github.copilot.chat.agent.thinkingTool": true,
+				"github.copilot.chat.agent.terminal.allowList": {
+					"lake": true,
+					"elan": true,
+					"echo": true,
+					"cd": true,
+					"ls": true,
+					"cat": true,
+					"pwd": true,
+					"find": true,
+					"grep": true,
+					"head": true
+				}
 			}
 		}
 	},
