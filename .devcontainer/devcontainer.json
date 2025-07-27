@@ -1,0 +1,49 @@
+// For format details, see https://aka.ms/devcontainer.json. For config options, see the
+// README at: https://github.com/devcontainers/templates/tree/main/src/ubuntu
+{
+	"name": "lean-project",
+	// Or use a Dockerfile or Docker Compose file. More info: https://containers.dev/guide/dockerfile
+	"build": {
+		"dockerfile": "Dockerfile"
+	},
+	// Features to add to the dev container. More info: https://containers.dev/features.
+	// "features": {},
+	"postStartCommand": "bash .devcontainer/setup-lean.sh",
+	"mounts": [
+		"source=lean-project-commandhistory,target=/commandhistory,type=volume"
+	],
+	// Configure tool-specific properties.
+	"customizations": {
+		"vscode": {
+			"extensions": [
+				"leanprover.lean4",
+				"github.copilot",
+				"github.copilot-chat"
+			],
+			"settings": {
+				"terminal.integrated.allowChords": false,
+				"files.eol": "\n",
+				"files.insertFinalNewline": true,
+				"editor.renderWhitespace": "all",
+				"editor.formatOnSave": true,
+				"github.copilot.chat.localeOverride": "ja",
+				"github.copilot.chat.agent.thinkingTool": true,
+				"github.copilot.chat.agent.terminal.allowList": {
+					"lake": true,
+					"elan": true,
+					"echo": true,
+					"cd": true,
+					"ls": true,
+					"cat": true,
+					"pwd": true,
+					"find": true,
+					"grep": true,
+					"head": true
+				}
+			}
+		}
+	},
+	"remoteEnv": {
+		"PATH": "${containerEnv:PATH}:/home/vscode/.elan/bin"
+	}
+}
