@@ -26,9 +26,11 @@
 				"files.insertFinalNewline": true,
 				"editor.renderWhitespace": "all",
 				"editor.formatOnSave": true,
-				"github.copilot.chat.localeOverride": "ja",
-				"github.copilot.chat.agent.thinkingTool": true,
-				"github.copilot.chat.agent.terminal.allowList": {
+				// "github.copilot.chat.localeOverride": "ja",
+				// "github.copilot.chat.agent.thinkingTool": true,
+				// "chat.agent.maxRequests": 50,
+				"chat.tools.terminal.autoApprove": {
+					"lean": true,
 					"lake": true,
 					"elan": true,
 					"echo": true,
@@ -38,7 +40,8 @@
 					"pwd": true,
 					"find": true,
 					"grep": true,
-					"head": true
+					"head": true,
+					"xargs": true
 				}
 			}
 		}
