@@ -7,3 +7,9 @@ RUN SNIPPET="export PROMPT_COMMAND='history -a' && export HISTFILE=/commandhisto
     && touch /commandhistory/.bash_history \
     && chown -R $USERNAME /commandhistory \
     && echo "$SNIPPET" >> "/home/$USERNAME/.bashrc"
+
+USER vscode
+WORKDIR /home/vscode
+
+RUN curl https://elan.lean-lang.org/elan-init.sh -sSf | sh -s -- -y --default-toolchain leanprover/lean4:4.23.0-rc2
+ENV PATH="/home/vscode/.elan/bin:${PATH}"

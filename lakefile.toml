@@ -4,8 +4,9 @@ defaultTargets = ["Project"]
 
 [[lean_lib]]
 name = "Project"
+leanOptions = { warningAsError = true }
 
 [[require]]
 name = "mathlib"
 scope = "leanprover-community"
-rev = "v4.22.0-rc4"
+rev = "v4.23.0-rc2"
