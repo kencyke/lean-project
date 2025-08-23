@@ -7,8 +7,16 @@
 		"dockerfile": "Dockerfile"
 	},
 	// Features to add to the dev container. More info: https://containers.dev/features.
-	// "features": {},
-	"postStartCommand": "bash .devcontainer/setup-lean.sh",
+	"features": {
+		"ghcr.io/devcontainers/features/python:1": {
+			"version": "3.13",
+			"toolsToInstall": "uv"
+		},
+		"ghcr.io/devcontainers/features/node:1": {
+			"version": "22"
+		}
+	},
+	"postStartCommand": "lake exe cache get",
 	"mounts": [
 		"source=lean-project-commandhistory,target=/commandhistory,type=volume"
 	],
@@ -26,9 +34,9 @@
 				"files.insertFinalNewline": true,
 				"editor.renderWhitespace": "all",
 				"editor.formatOnSave": true,
-				// "github.copilot.chat.localeOverride": "ja",
-				// "github.copilot.chat.agent.thinkingTool": true,
-				// "chat.agent.maxRequests": 50,
+				"github.copilot.chat.localeOverride": "ja",
+				"github.copilot.chat.agent.thinkingTool": true,
+				"chat.agent.maxRequests": 50,
 				"chat.tools.terminal.autoApprove": {
 					"lean": true,
 					"lake": true,
@@ -41,7 +49,8 @@
 					"find": true,
 					"grep": true,
 					"head": true,
-					"xargs": true
+					"xargs": true,
+					"sed": true
 				}
 			}
 		}

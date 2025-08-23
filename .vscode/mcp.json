@@ -1,0 +1,23 @@
+{
+    "inputs": [],
+    "servers": {
+        "markitdown-mcp": {
+            "command": "uvx",
+            "args": [
+                "markitdown-mcp"
+            ]
+        },
+        "readability": {
+            "command": "npx",
+            "args": [
+                "-y",
+                "@mizchi/readability",
+                "--mcp"
+            ]
+        },
+        "deepwiki": {
+            "type": "http",
+            "url": "https://mcp.deepwiki.com/mcp"
+        }
+    }
+}
