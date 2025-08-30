@@ -1,6 +1,6 @@
 import Mathlib.Data.Nat.Prime.Factorial
 
-namespace Example
+namespace Prime
 
 -- Theorem: There are infinitely many prime numbers
 -- 1. Consider N = n! + 1 for any natural number n.
@@ -25,4 +25,4 @@ theorem infinitely_many_primes : ∀ n : ℕ, ∃ p : ℕ, n < p ∧ Nat.Prime p
     pp.not_dvd_one h₂
   exact ⟨p, np, pp⟩
 
-end Example
+end Prime

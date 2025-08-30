@@ -1,10 +1,11 @@
 {
     "inputs": [],
     "servers": {
-        "markitdown-mcp": {
+        "lean-lsp": {
+            "type": "stdio",
             "command": "uvx",
             "args": [
-                "markitdown-mcp"
+                "lean-lsp-mcp"
             ]
         },
         "readability": {

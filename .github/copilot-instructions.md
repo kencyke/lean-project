@@ -5,6 +5,7 @@
 - Do not add files.
 - Do not remove files.
 - Do not modify `lakefile.toml`.
+- Do not perform actions other than those explicitly instructed.
 - Do not create `namespace` or `section` blocks unless specifically instructed.
 - Minimize the use of `sorry` and `admit`, and strive to complete proofs.
 - Do not use `fetch` in chat. Alternatively, try to use the following tools:

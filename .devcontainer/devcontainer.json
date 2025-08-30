@@ -51,6 +51,10 @@
 					"head": true,
 					"xargs": true,
 					"sed": true
+				},
+				"lean4.input.customTranslations": {
+					"geq": "≧",
+					"nnreal": "ℝ≥0"
 				}
 			}
 		}
