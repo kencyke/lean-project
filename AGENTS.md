@@ -1,4 +1,4 @@
-# Copilot Instructions for Lean + Mathlib Project
+# AGENTS.md
 
 ## Important Instructions
 
@@ -12,3 +12,7 @@
    - Given a github repository, use tools in deepwiki mcp server.
    - Given a PDF file's URL, use `convert_to_markdown`.
    - Otherwise, use `read_url_content_as_markdown`.
+- Use `$...$` or `$$...$$` for LaTeX math formatting in markdown.
+- Use `conj` as complex conjugate when declaring `open ComplexConjugate` or `open scoped ComplexConjugate`.
+- Use `simp` when referring `try 'simp' instead of 'simpa'`.
+- Fix indentation when referring `expected '{' or indented tactic sequence`.
