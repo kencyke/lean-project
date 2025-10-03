@@ -100,19 +100,19 @@ instance instInnerProductSpaceCore : InnerProductSpace.Core ℂ (A ⧸ Nω) :=
         apply Quot.sound
         rwa [Submodule.quotientRel_def, sub_zero] }
 
-noncomputable instance instNormedAddCommGroup : NormedAddCommGroup (A ⧸ Nω) :=
-  @InnerProductSpace.Core.toNormedAddCommGroup ℂ (A ⧸ Nω) _ _ _ instInnerProductSpaceCore
+instance instNormedSpace : NormedSpace ℂ (A ⧸ Nω) :=
+  @Submodule.Quotient.normedSpace _ _ ℂ _ _ Nω.toSubmodule ℂ _ _ _ _
 
-noncomputable instance instInnerProductSpace : InnerProductSpace ℂ (A ⧸ Nω) := by
-  exact InnerProductSpace.ofCore instInnerProductSpaceCore
+instance instInnerProductSpace : InnerProductSpace ℂ (A ⧸ Nω) where
+  toInner := instInnerProductSpaceCore.toInner
+  conj_inner_symm := instInnerProductSpaceCore.conj_inner_symm
+  add_left := instInnerProductSpaceCore.add_left
+  smul_left := instInnerProductSpaceCore.smul_left
+  norm_sq_eq_re_inner := by sorry
 
 abbrev Hω := UniformSpace.Completion (A ⧸ Nω)
 local notation "Hω" => (Hω (ω := ω))
 
 instance instCompleteSpace : CompleteSpace Hω := inferInstance
 
-noncomputable instance instHilbertSpace : NotMathlib.HilbertSpace ℂ Hω := {
-  toNormedAddCommGroup := inferInstance
-  toInnerProductSpace := inferInstance
-  toCompleteSpace := inferInstance
-}
+noncomputable instance instHilbertSpace : NotMathlib.HilbertSpace ℂ Hω := {}

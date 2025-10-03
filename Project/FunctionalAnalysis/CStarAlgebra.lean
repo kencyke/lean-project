@@ -33,6 +33,9 @@ lemma LeftKernel.mem_toSubmodule {A : Type*} [CStarAlgebra A]
 instance hasQuotientLeftKernel (A : Type*) [CStarAlgebra A] : HasQuotient A (LeftKernel A) where
   quotient' I := A ⧸ I.toSubmodule
 
+noncomputable instance (A : Type*) [CStarAlgebra A] (I : LeftKernel A) : SeminormedAddCommGroup (A ⧸ I) :=
+  Submodule.Quotient.seminormedAddCommGroup I.toSubmodule
+
 instance (A : Type*) [CStarAlgebra A] (I : LeftKernel A) : AddCommGroup (A ⧸ I) :=
   Submodule.Quotient.addCommGroup I.toSubmodule
 
