@@ -4,5 +4,4 @@ import Project.FunctionalAnalysis.BanachAlgebra
 import Project.FunctionalAnalysis.CStarAlgebra
 import Project.FunctionalAnalysis.GNS
 import Project.FunctionalAnalysis.HilbertSpace
-import Project.FunctionalAnalysis.Ideal
 import Project.FunctionalAnalysis.State

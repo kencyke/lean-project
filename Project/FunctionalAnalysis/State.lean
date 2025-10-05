@@ -10,14 +10,14 @@ class State {A} (ω: A → ℂ) [CStarAlgebra A] extends Norm (A → ℂ) where
   linear_add: ∀ (x y : A), ω (x + y) = ω x + ω y
   linear_mul: ∀ (x : A) (c : ℂ), ω (c • x) = c •  ω x
   positive : ∀ a : A, ∃ r : ℝ≥0, ω (star a * a) = r
-  -- norm_def : ‖ω‖ = sSup { r : ℝ | ∃ a : A, a ≠ 0 ∧ r = ‖ω a‖ / ‖a‖ }
-  -- norm_one: ‖ω‖ = 1
+  norm_def : ‖ω‖ = sSup { r : ℝ | ∃ a : A, a ≠ 0 ∧ r = ‖ω a‖ / ‖a‖ }
+  norm_one: ‖ω‖ = 1
   -- involutive: ∀ (x : A), star ω (x) = conj ω (star x)
 
 namespace State
 
 variable {A} [CStarAlgebra A]
-variable (x y a: A)
+variable (x y a b: A)
 variable (x₁ x₂ y₁ y₂ : A)
 variable (ω: A → ℂ) [State ω]
 variable (z c: ℂ)
@@ -122,6 +122,9 @@ theorem cauchy_schwarz_ineq : ‖ω (star y * x)‖^2 ≤ (ω (star x * x)) * (�
   rw [ω_spec (ω := ω) x, ω_spec (ω := ω) y]
   norm_cast
 
+open ComplexOrder in
+lemma continuous_ineq : ‖ω (star b * a * b)‖ ≤ ‖a‖ * ω (star b * b) := by sorry
+
 lemma kernel_degenerate_left (hx : ω (star x * x) = 0) : ω (star a * x) = 0 := by
   have := cauchy_schwarz_ineq (ω := ω) (x := x) (y := a)
   rw [hx, zero_mul] at this
@@ -172,5 +175,28 @@ lemma equiv_right (x y₁ y₂ : A) (hy : ω (star (y₁ - y₂) * (y₁ - y₂)
     ω (star x * y₁) = ω (star x * y₂ + star x * (y₁ - y₂)) := by rw [hmul]
     _ = ω (star x * y₂) + ω (star x * (y₁ - y₂)) := map_add (ω := ω) _ _
     _ = ω (star x * y₂) := by rw [hzero, add_zero]
+
+def Nω : Ideal A where
+  carrier := { x : A | ω (star x * x) = 0 }
+  zero_mem' := by
+    change ω (star (0 : A) * (0 : A)) = 0
+    have hω0 : ω (0 : A) = 0 := by
+      simpa using (map_smul (ω := ω) (x := (0 : A)) (z := (0 : ℂ)))
+    simpa [star_zero, zero_mul] using hω0
+  add_mem' := by
+    intro x y hx hy
+    exact kernel_closed_under_add (ω := ω) (x := x) (y := y) hx hy
+  neg_mem' := by
+    intro x hx
+    change ω (star x * x) = 0 at hx
+    change ω (star (-x) * (-x)) = 0
+    simp only [star_neg, neg_mul_neg]
+    exact hx
+  mul_mem' := by
+    intro a x hx
+    exact kernel_closed_under_left_mul (ω := ω) (a := a) (x := x) hx
+  smul_mem' := by
+    intro c x hx
+    exact kernel_closed_under_smul (ω := ω) (c := c) (x := x) hx
 
 end State
