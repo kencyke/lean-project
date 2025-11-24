@@ -16,7 +16,7 @@
 			"version": "22"
 		}
 	},
-	"postStartCommand": "rm -rf .lake/ && lake exe cache get",
+	"postStartCommand": "rm -rf .lake/ && lake exe cache get && npm ci",
 	"mounts": [
 		"source=lean-project-commandhistory,target=/commandhistory,type=volume"
 	],
