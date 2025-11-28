@@ -4,6 +4,7 @@ defaultTargets = ["Project"]
 
 [[lean_lib]]
 name = "Project"
+leanOptions = { warningAsError = true }
 
 [[require]]
 name = "mathlib"
