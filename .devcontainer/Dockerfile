@@ -14,5 +14,5 @@ RUN apt-get update && \
 USER vscode
 WORKDIR /home/vscode
 
-RUN curl https://elan.lean-lang.org/elan-init.sh -sSf | sh -s -- -y --default-toolchain leanprover/lean4:4.25.1
+RUN curl https://elan.lean-lang.org/elan-init.sh -sSf | sh -s -- -y --default-toolchain leanprover/lean4:4.26.0-rc2
 ENV PATH="/home/vscode/.elan/bin:${PATH}"
