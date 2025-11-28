@@ -2,7 +2,7 @@
 
 ```bash
 $ lake build
-Build completed successfully (574 jobs).
+Build completed successfully (579 jobs).
 ```
 
 ## How to use
@@ -20,7 +20,6 @@ Build completed successfully (574 jobs).
 ### VSCode Extensions
 
 - [ms-vscode-remote.remote-containers](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers)
-- [github.copilot](https://marketplace.visualstudio.com/items?itemName=GitHub.copilot)
 - [github.copilot-chat](https://marketplace.visualstudio.com/items?itemName=GitHub.copilot-chat)
 
 ### MCP Servers
