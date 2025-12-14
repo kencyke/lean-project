@@ -1,4 +1,5 @@
-import Mathlib.Data.Nat.Prime.Factorial
+import Mathlib.Data.Nat.Factorial.Basic
+import Mathlib.Data.Nat.Prime.Defs
 
 namespace Example
 
@@ -26,3 +27,5 @@ theorem infinitely_many_primes : ∀ n : ℕ, ∃ p : ℕ, n < p ∧ Nat.Prime p
   exact ⟨p, np, pp⟩
 
 end Example
+
+#min_imports
