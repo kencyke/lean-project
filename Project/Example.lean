@@ -12,9 +12,7 @@ namespace Example
 theorem infinitely_many_primes : ∀ n : ℕ, ∃ p : ℕ, n < p ∧ Nat.Prime p := by
   intro n
   let N := Nat.factorial n + 1
-  have N_gt_one : 1 < N := by
-    simp [N]
-    exact Nat.factorial_pos n
+  have N_gt_one : 1 < N := Nat.succ_lt_succ (Nat.factorial_pos n)
   let p := Nat.minFac N
   have N_not_one : N ≠ 1 := Nat.ne_of_gt N_gt_one
   have pp : Nat.Prime p := Nat.minFac_prime N_not_one
