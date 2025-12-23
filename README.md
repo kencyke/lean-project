@@ -1,8 +1,14 @@
 # lean-project
 
 ```bash
+$ lake exe mk_all
+No update necessary
 $ lake build
-Build completed successfully (579 jobs).
+ℹ [496/498] Replayed Project.Example
+info: Project/Example.lean:29:0: import Mathlib.Data.Nat.Factorial.Basic
+import Mathlib.Data.Nat.Prime.Defs
+info: Project/Example.lean:29:0: `#`-commands, such as '#min_imports', are not allowed in 'Mathlib' [linter.hashCommand]
+Build completed successfully (498 jobs).
 ```
 
 ## How to use
