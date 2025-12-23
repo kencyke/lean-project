@@ -39,7 +39,11 @@
 				"editor.formatOnSave": true,
 				"github.copilot.chat.agent.thinkingTool": true,
 				"chat.agent.maxRequests": 50,
-				"chat.tools.autoApprove": true,
+				"chat.useAgentSkills": true,
+				"chat.tools.urls.autoApprove": {
+   					"https://lean-lang.org/doc/*": false
+				},
+				"chat.tools.terminal.enableAutoApprove": true,
 				"chat.tools.terminal.autoApprove": {
 					"lean": true,
 					"lake": true,

@@ -4,9 +4,14 @@ defaultTargets = ["Project"]
 
 [[lean_lib]]
 name = "Project"
-leanOptions = { warningAsError = true }
+leanOptions.warningAsError = true
+leanOptions.pp.unicode.fun = true
+leanOptions.autoImplicit = false
+leanOptions.relaxedAutoImplicit = false
+leanOptions.linter.mathlibStandardSet = true
+leanOptions.linter.style.longLine = false
 
 [[require]]
 name = "mathlib"
 scope = "leanprover-community"
-rev = "v4.26.0"
+rev = "v4.27.0-rc1"
