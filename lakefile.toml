@@ -2,14 +2,16 @@ name = "Project"
 version = "0.1.0"
 defaultTargets = ["Project"]
 
+[leanOptions]
+warningAsError = true
+pp.unicode.fun = true
+autoImplicit = false
+relaxedAutoImplicit = false
+linter.mathlibStandardSet = true
+linter.style.longLine = false
+
 [[lean_lib]]
 name = "Project"
-leanOptions.warningAsError = true
-leanOptions.pp.unicode.fun = true
-leanOptions.autoImplicit = false
-leanOptions.relaxedAutoImplicit = false
-leanOptions.linter.mathlibStandardSet = true
-leanOptions.linter.style.longLine = false
 
 [[require]]
 name = "mathlib"

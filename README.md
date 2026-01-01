@@ -14,12 +14,13 @@ Build completed successfully (498 jobs).
 ## How to use
 
 1. Create a repository from this template.
-2. Confirm lint settings in `package.json`, `.lefthook/`, and `lefthook.yml`.
-3. Remove `Project.lean` and `Project/`.
-4. Make your project files, then update `lakefile.toml`.
-5. Bump lean version in `.devcontainer/Dockerfile`, `lakefile.toml`, and `lean-toolchain`.
-6. Reomve `lake-manifest.json` and `.lake/`.
-7. Execute `lake exe cache get`.
+2. Confirm github workflows in `.github/workflows/`.
+3. Confirm lint settings in `package.json`, `.lefthook/`, and `lefthook.yml`.
+4. Remove `Project.lean` and `Project/`.
+5. Make your project files, then update `lakefile.toml`.
+6. Bump lean version in `.devcontainer/Dockerfile`, `lakefile.toml`, and `lean-toolchain`.
+7. Reomve `lake-manifest.json` and `.lake/`.
+8. Execute `lake exe cache get`.
 
 ## Recommend to use
 
