@@ -1,0 +1,54 @@
+name: Release Lean
+
+on:
+  pull_request:
+    types: [closed]
+    branches:
+      - main
+    paths:
+      - lean-toolchain
+
+jobs:
+  release:
+    if: github.event.pull_request.merged == true
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Determine current Lean tag from lean-toolchain
+        id: current
+        shell: bash
+        run: |
+          set -euo pipefail
+          toolchain="$(cat lean-toolchain)"
+          tag="${toolchain##*:}"
+          if [[ -z "$tag" ]]; then
+            echo "Failed to parse lean-toolchain: $toolchain" >&2
+            exit 1
+          fi
+          echo "tag=$tag" >> "$GITHUB_OUTPUT"
+
+      - name: Check if tag already exists
+        id: tag_exists
+        shell: bash
+        run: |
+          if git tag -l "${{ steps.current.outputs.tag }}" | grep -q .; then
+            echo "exists=true" >> "$GITHUB_OUTPUT"
+            echo "Tag '${{ steps.current.outputs.tag }}' already exists; skipping release."
+          else
+            echo "exists=false" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Create GitHub Release
+        if: steps.tag_exists.outputs.exists != 'true'
+        uses: softprops/action-gh-release@v2
+        with:
+          tag_name: ${{ steps.current.outputs.tag }}
+          target_commitish: ${{ github.sha }}
+          prerelease: ${{ contains(steps.current.outputs.tag, '-') }}
+          generate_release_notes: true
