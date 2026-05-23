@@ -11,7 +11,7 @@ info: Project/Example.lean:29:0: `#`-commands, such as '#min_imports', are not a
 Build completed successfully (498 jobs).
 ```
 
-## How to use
+## Initialization
 
 1. Create a repository from this template.
 2. Confirm github workflows in `.github/workflows/`.
@@ -22,13 +22,18 @@ Build completed successfully (498 jobs).
 7. Reomve `lake-manifest.json` and `.lake/`.
 8. Execute `lake exe cache get`.
 
-## Recommend to use
+## Tools in development
 
 ### VSCode Extensions
 
 - [ms-vscode-remote.remote-containers](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers)
-- [github.copilot-chat](https://marketplace.visualstudio.com/items?itemName=GitHub.copilot-chat)
 
 ### MCP Servers
 
 - https://github.com/oOo0oOo/lean-lsp-mcp
+
+### Skills
+
+- https://github.com/leanprover/skills
+- https://github.com/cameronfreer/lean4-skills
+- https://github.com/companion-inc/feynman
