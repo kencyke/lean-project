@@ -1,16 +1,6 @@
 # Refer for explanation to following link:
 # https://lefthook.dev/configuration/
 
-# Build commit messages
-prepare-commit-msg:
-  parallel: true
-  scripts:
-    "commitizen.sh":
-      interactive: true
-      runner: bash
-      env:
-        LEFTHOOK: 0
-
 # Validate commit messages
 commit-msg:
   commands:

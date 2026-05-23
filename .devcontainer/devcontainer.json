@@ -41,7 +41,7 @@
 				"chat.agent.maxRequests": 50,
 				"chat.useAgentSkills": true,
 				"chat.tools.urls.autoApprove": {
-   					"https://lean-lang.org/doc/*": false
+					"https://lean-lang.org/doc/*": false
 				},
 				"chat.tools.terminal.enableAutoApprove": true,
 				"chat.tools.terminal.autoApprove": {
