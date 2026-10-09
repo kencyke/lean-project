@@ -1,14 +1,31 @@
+/-
+Copyright (c) 2026 suzuki. All rights reserved.
+Released under Apache 2.0 license as described in the file LICENSE.
+Authors: suzuki
+-/
 import Mathlib.Data.Nat.Factorial.Basic
 import Mathlib.Data.Nat.Prime.Defs
 
+/-!
+# Infinitude of primes
+
+This file proves Euclid's theorem: for every natural number `n` there is a prime `p > n`.
+
+## Main results
+
+- `Example.infinitely_many_primes`: every natural number is exceeded by some prime.
+-/
+
 namespace Example
 
--- Theorem: There are infinitely many prime numbers
--- 1. Consider N = n! + 1 for any natural number n.
--- 2. N is greater than 1, so it has a prime divisor.
--- 3. Let p be the smallest prime divisor of N.
--- 4. If p ≤ n, then p divides n! and also divides N, leading to a contradiction since p cannot divide 1.
--- 5. Therefore, p > n, proving that there are infinitely many primes.
+
+/-- There are infinitely many primes: for every `n : ℕ` there is a prime `p` with `n < p`.
+1. Consider N = n! + 1 for any natural number n.
+2. N is greater than 1, so it has a prime divisor.
+3. Let p be the smallest prime divisor of N.
+4. If p ≤ n, then p divides n! and also divides N, leading to a contradiction since p cannot divide 1.
+5. Therefore, p > n, proving that there are infinitely many primes.
+-/
 theorem infinitely_many_primes : ∀ n : ℕ, ∃ p : ℕ, n < p ∧ Nat.Prime p := by
   intro n
   let N := Nat.factorial n + 1
@@ -25,5 +42,3 @@ theorem infinitely_many_primes : ∀ n : ℕ, ∃ p : ℕ, n < p ∧ Nat.Prime p
   exact ⟨p, np, pp⟩
 
 end Example
-
-#min_imports
