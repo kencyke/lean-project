@@ -21,19 +21,3 @@ Build completed successfully (498 jobs).
 6. Bump lean version in `.devcontainer/Dockerfile`, `lakefile.toml`, and `lean-toolchain`.
 7. Reomve `lake-manifest.json` and `.lake/`.
 8. Execute `lake exe cache get`.
-
-## Tools in development
-
-### VSCode Extensions
-
-- [ms-vscode-remote.remote-containers](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers)
-
-### MCP Servers
-
-- https://github.com/oOo0oOo/lean-lsp-mcp
-
-### Skills
-
-- https://github.com/leanprover/skills
-- https://github.com/cameronfreer/lean4-skills
-- https://github.com/companion-inc/feynman
